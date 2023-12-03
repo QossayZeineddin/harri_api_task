@@ -13,22 +13,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @RestController
-@RequestMapping("/Cars")
+@RequestMapping("/cars")
 public class CarController {
 
     @Autowired
     CarService carService;
 
-    @GetMapping("/getAll")
-    public List<Car> getAllCourse(){
+    @GetMapping(value = {"/getAll", ""})
+    public List<Car> getAllCArs(){
         return carService.getAllCars();
     }
 
 
 
-    //public Optional<Course> findById(@PathVariable Integer id){
-    @GetMapping("/getAll/{counter}")
-    public List<Car> getAllCourse(@PathVariable String counter){
-        return carService.getAllCarsBy(counter);
+    @GetMapping("/getby/{country}")
+    public List<Car> findByCountryName(@PathVariable String country){
+        return carService.getAllCarsByCountryOfOrigin(country);
+    }
+
+    @GetMapping("/getby/{country}/{num}")
+    public List<Car> findByCountryNameNums(@PathVariable String country , @PathVariable int num){
+        return carService.getByCountryAndLimit(country ,  num);
     }
 }

@@ -9,14 +9,19 @@ import java.util.List;
 
 @Service
 public class CarService {
+
     @Autowired
     private CarRepository carRepository;
 
     public List<Car>  getAllCars(){
         return carRepository.findAll();
     }
-    public List<Car>  getAllCarsBy(String countryOfOrigin){
+
+    public List<Car>  getAllCarsByCountryOfOrigin(String countryOfOrigin){
         return carRepository.findBycountryOfOrigin(countryOfOrigin);
     }
 
+    public List<Car> getByCountryAndLimit(String country , int num){
+        return carRepository.findByCountryOfOriginCustomQuery(country , num);
+    }
 }
