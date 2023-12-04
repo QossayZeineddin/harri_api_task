@@ -11,8 +11,8 @@ import java.util.List;
 
 @Repository
 public interface CarRepository extends JpaRepository<Car, Integer> {
-    //Car findByCountry_of_Origin(String Country_of_Origin);
     List<Car> findBycountryOfOrigin(String country_of_origin);
+    List<Car> findBycarBrand(String car_brand);
 
     @Query(value = "SELECT * FROM cars c WHERE c.country_of_origin = :country_of_origin LIMIT :num", nativeQuery = true)
     List<Car> findByCountryOfOriginCustomQuery(@Param("country_of_origin") String country_of_origin, @Param("num") int num);

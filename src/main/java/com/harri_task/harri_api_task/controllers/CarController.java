@@ -35,4 +35,9 @@ public class CarController {
     public List<Car> findByCountryNameNums(@PathVariable String country , @PathVariable int num){
         return carService.getByCountryAndLimit(country ,  num);
     }
+
+    @GetMapping("/getbyBrand/{carBrand}")
+    public List<Car> findBycarBrand(@PathVariable String carBrand ) {
+        return carService.getByCarBrand(carBrand);
+    }
 }

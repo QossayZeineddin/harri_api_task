@@ -24,4 +24,8 @@ public class CarService {
     public List<Car> getByCountryAndLimit(String country , int num){
         return carRepository.findByCountryOfOriginCustomQuery(country , num);
     }
+
+    public List<Car> getByCarBrand(String carBrand){
+        return carRepository.findBycarBrand(carBrand);
+    }
 }
