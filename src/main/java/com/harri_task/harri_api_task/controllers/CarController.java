@@ -25,7 +25,6 @@ public class CarController {
     }
 
 
-
     @GetMapping("/getby/{country}")
     public List<Car> findByCountryName(@PathVariable String country){
         return carService.getAllCarsByCountryOfOrigin(country);
