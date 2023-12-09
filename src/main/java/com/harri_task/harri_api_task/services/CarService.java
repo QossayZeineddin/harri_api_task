@@ -17,6 +17,10 @@ public class CarService {
         return carRepository.findAll();
     }
 
+    public List<Car> getByID(int id){
+        return  carRepository.findCarById(id);
+    }
+
     public List<Car>  getAllCarsByCountryOfOrigin(String countryOfOrigin){
         return carRepository.findBycountryOfOrigin(countryOfOrigin);
     }
